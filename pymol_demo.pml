@@ -32,6 +32,10 @@ h_add 2qsg #add H to protein. then use the find -> polar contacts in the Action 
 alter all,vdw=vdw+1.4
 show surface
 set transparency, 0.5
+create protein, rad4 or rad23
+set dot_solvent, 2
+set dot_density, 4
+get_area protein
 
 #load interfaceResidues.py from File -> run#
 run /PATHtoFILE/interfaceResidues.py
@@ -42,13 +46,33 @@ dist polar2, chain A, chain Y, mode=2
 
 show sticks, int*Res and rad4 #show the dna contacting aa in sticks, showing sidechains.#
 util.cbam, int*Res and rad4 #color the dna contacting aa by atom type with carbon in magentas.#
-create protein, rad4 or rad23
-alter all,vdw=vdw+1.4
+alter all,vdw=vdw-1.4
 hide everything, protein
 color white, protein
 show surface, protein
 
 
 #Quick movie making#
-
-
+mset 1 x50
+frame 1
+mview store
+frame 10
+zoom (resi 556,596-607)
+orient (resi 556,596-607)
+mview store
+frame 20
+#manually choose view#
+mview store
+frame 30
+#manually choose view#
+mview store
+frame 40
+#manually choose view#
+mview store
+frame 50
+#manually choose view#
+mview store
+set ray_trace_frames=1
+set cache_frames=0
+mclear
+mpng test_mov
