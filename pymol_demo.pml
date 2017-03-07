@@ -24,18 +24,31 @@ rebuild
 
 color red, ss h and rad4 #color rad4 helix in red#
 color yellow, ss s and rad4 #color rad4 beta strand in yellow#
-color marine ss l+'' and rad4 #color rad4 loop in marine#
-color gray79, dna
+color marine, ss l+'' and rad4 #color rad4 loop in marine#
+color gray70, dna
 util.cbaw dna #color dna  by atoms with carbon in gray#
 
 h_add 2qsg #add H to protein. then use the find -> polar contacts in the Action menu to show hydrogen bonds#
+alter all,vdw=vdw+1.4
+show surface
+set transparency, 0.5
 
 #load interfaceResidues.py from File -> run#
 run /PATHtoFILE/interfaceResidues.py
-foundResidues = interfaceResidues("2qsg", cA="chain A", cB="chain Y,W", cutoff=5, selName="intRes") #find residues at DNA and rad4 interface with distance cutoff at 5A.#
+foundResidues = interfaceResidues("2qsg", cA="chain A", cB="chain W", cutoff=1, selName="int1Res") #find residues at DNA and rad4 interface with distance cutoff at 5A.#
+dist polar1, chain A, chain W, mode=2
+foundResidues = interfaceResidues("2qsg", cA="chain A", cB="chain Y", cutoff=1, selName="int2Res") #find residues at DNA and rad4 interface with distance cutoff at 5A.#
+dist polar2, chain A, chain Y, mode=2
 
-show sticks, intRes and rad4 #show the dna contacting aa in sticks, showing sidechains.#
-util.cbam, intRes and rad4 #color the dna contacting aa by atom type with carbon in magentas.#
+show sticks, int*Res and rad4 #show the dna contacting aa in sticks, showing sidechains.#
+util.cbam, int*Res and rad4 #color the dna contacting aa by atom type with carbon in magentas.#
+create protein, rad4 or rad23
+alter all,vdw=vdw+1.4
+hide everything, protein
+color white, protein
+show surface, protein
 
-#to be continued#
+
+#Quick movie making#
+
 
