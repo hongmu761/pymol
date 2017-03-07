@@ -11,7 +11,7 @@ select domain2, chain A and resi 434-490
 select domain3, chain A and resi 491-540
 select domain4, chain A and resi 541-632
 
-set cartoon_ring_mode,1 #use cartoon rings to represent DNA ring structures.#
+set cartoon_ring_mode,3 #use cartoon rings to represent DNA ring structures.#
 set cartoon_nucleic_acid_mode, 1 #trace backbone through C3' of each nt#
 show sticks, dna #use stick representation for DNA#
 
