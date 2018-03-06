@@ -39,9 +39,9 @@ get_area protein
 
 #load interfaceResidues.py from File -> run#
 run /PATHtoFILE/interfaceResidues.py
-foundResidues = interfaceResidues("2qsg", cA="chain A", cB="chain W", cutoff=1, selName="int1Res") #find residues at DNA and rad4 interface with distance cutoff at 5A.#
+foundResidues = interfaceResidues("2qsg", cA="chain A", cB="chain W", cutoff=1, selName="int1Res") #find residues at DNA and rad4 interface with dASA cutoff at 1A^2.#
 dist polar1, chain A, chain W, mode=2
-foundResidues = interfaceResidues("2qsg", cA="chain A", cB="chain Y", cutoff=1, selName="int2Res") #find residues at DNA and rad4 interface with distance cutoff at 5A.#
+foundResidues = interfaceResidues("2qsg", cA="chain A", cB="chain Y", cutoff=1, selName="int2Res") #find residues at DNA and rad4 interface with dASA cutoff at 1A^2.#
 dist polar2, chain A, chain Y, mode=2
 
 show sticks, int*Res and rad4 #show the dna contacting aa in sticks, showing sidechains.#
